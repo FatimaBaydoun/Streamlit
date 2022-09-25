@@ -21,13 +21,21 @@ fig= px.box(df, y="math_score", color="gender")
 st.plotly_chart(fig)
 
 st.header("Reading Score By Gender")
-fig2= px.histogram(df, x="reading_score", color = "gender")
-st.plotly_chart(fig2)
-
-st.subheader("Gender")
-z=["Male","Female"]
-y=st.radio('Navigation',z)
-
+option=st.selectbox("Gender",('All','Female','Male'))
+if option=='All':
+    fig8=px.histogram(df, x="reading_score", color = "gender")
+    st.plotly_chart(fig8)
+    
+if option=='Female':
+    Female=df[df["gender"]=='female']
+    fig6=px.histogram(Female, x="reading_score", color_discrete_sequence=['blue'])
+    st.plotly_chart(fig6)
+    
+if option=="Male":
+    Male=df[df["gender"]=='male']
+    fig7=px.histogram(Male, x="reading_score", color_discrete_sequence=['red'])
+    st.plotly_chart(fig7)
+      
 st.subheader("What is your reading score?")
 x=st.slider('A number between 0-100', min_value=(0), max_value=(100))
 st.write('Grade:',x)
