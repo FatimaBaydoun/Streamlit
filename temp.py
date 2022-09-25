@@ -10,7 +10,7 @@ st.title("Interactive Visualization With Streamlit")
 
 import pandas as pd
 import plotly.express as px  
-df = pd.read_csv("/Users/mac/Desktop/StudentsPerformance.csv")
+df = pd.read_csv("StudentsPerformance.csv")
 
 if st.checkbox('Show Students Perfomance Dataset'):
    st.subheader('Students Perfomance Dataset') 
